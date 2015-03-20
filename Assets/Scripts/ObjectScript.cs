@@ -9,6 +9,7 @@ public class ObjectScript : MonoBehaviour {
 	
 	public Sprite objectImage;
 	public bool destroyAfterShow = false;
+	public float scale = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -64,6 +65,7 @@ public class ObjectScript : MonoBehaviour {
 		
 		objectShown.transform.parent = mainCamera.transform;
 		objectShown.transform.localPosition = new Vector3(0, 0, 1);
+		objectShown.transform.localScale = new Vector3(scale, scale, 0);
 		objectShownInCamera = objectShown;
 	}
 	
