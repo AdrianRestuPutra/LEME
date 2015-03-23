@@ -8,9 +8,14 @@ public class BrankasInput : MonoBehaviour {
 	public GameObject[] inputActive;
 	public GameObject[] shownDigit;
 	public int rightAnswer;
+	public string objectInside;
 	
 	private int[] startDigit = new int[4];
 	private int indexBrankas = 0;
+	private string xboxBeforeH = "CENTER";
+	private string xboxBeforeV = "CENTER";
+	private float second = 0;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +32,12 @@ public class BrankasInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		second += Time.deltaTime;
+		if (second >= 0.5) {
+			second = 0;
+			xboxBeforeH = "CENTER";
+			xboxBeforeV = "CENTER";
+		}
 		GetInputFromUser();
 	}
 	
@@ -37,9 +48,32 @@ public class BrankasInput : MonoBehaviour {
 		bool up = Input.GetKeyDown(KeyCode.UpArrow);
 		bool down = Input.GetKeyDown(KeyCode.DownArrow);
 		
-		bool input = Input.GetKeyDown(KeyCode.X);
+		bool input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
-		bool cancel = Input.GetKeyDown(KeyCode.B);
+		bool cancel = Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Joystick1Button1);
+		
+		float hAxisXBOX = Input.GetAxis("Horizontal");
+		float vAxisXBOX = Input.GetAxis("Vertical");
+		
+		if (hAxisXBOX >= 1 && xboxBeforeH != "RIGHT") {
+			right |= true;
+			xboxBeforeH = "RIGHT";
+			second = 0;
+		} else if (hAxisXBOX <= -1 && xboxBeforeH != "LEFT") {
+			left |= true;
+			xboxBeforeH = "LEFT";
+			second = 0;
+		} else if (hAxisXBOX == 0) xboxBeforeH = "CENTER";
+		
+		if (vAxisXBOX >= 1 && xboxBeforeV != "UP") {
+			up |= true;
+			xboxBeforeV = "UP";
+			second = 0;
+		} else if (vAxisXBOX <= -1 && xboxBeforeV != "DOWN") {
+			down |= true;
+			xboxBeforeV = "DOWN";
+			second = 0;
+		} else if (vAxisXBOX == 0) xboxBeforeV = "CENTER";
 		
 		if (left) indexBrankas = ((indexBrankas - 1) + 4) % 4;
 		else if (right) indexBrankas = (indexBrankas + 1) % 4;
@@ -50,17 +84,24 @@ public class BrankasInput : MonoBehaviour {
 		if (input) {
 			int answer = GetAnswer();
 			print (answer);
-			if (answer == rightAnswer) print ("Jawaban Benar");
-			else print ("Jawaban Salah");
+			if (answer == rightAnswer) {
+				player.GetComponent<PlayerBag>().Collecting(objectInside);
+				print ("Jawaban Benar");
+				RemoveBrankas();
+			} else print ("Jawaban Salah");
 		}
 		
 		if (cancel) {
-			player.GetComponent<MovePlayer>().enabled = true;
-			brankas.GetComponent<Brankas>().enabled = true;
-			Destroy(this.gameObject);
+			RemoveBrankas();
 		}
 		
 		if (left || right) MoveYellowToRightPosition();
+	}
+	
+	void RemoveBrankas() {
+		player.GetComponent<MovePlayer>().enabled = true;
+		brankas.GetComponent<Brankas>().enabled = true;
+		Destroy(this.gameObject);
 	}
 	
 	void MoveYellowToRightPosition() {

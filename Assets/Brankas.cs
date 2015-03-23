@@ -23,6 +23,8 @@ public class Brankas : MonoBehaviour {
 		
 		if (action && isObjectCollideWithPlayer) {
 			brankasInput.GetComponent<BrankasInput>().brankas = gameObject;
+			brankasInput.GetComponent<BrankasInput>().rightAnswer = 1208;
+			brankasInput.GetComponent<BrankasInput>().objectInside = "exit-key";
 			Instantiate(brankasInput);
 			gameObject.GetComponent<Brankas>().enabled = false;
 			player.GetComponent<MovePlayer>().enabled = false;

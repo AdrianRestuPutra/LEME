@@ -20,7 +20,8 @@ public class MenuChanger : MonoBehaviour {
 	void InputManager() {
 		bool left = Input.GetKeyDown(KeyCode.LeftArrow);
 		bool right = Input.GetKeyDown(KeyCode.RightArrow);
-		bool escape = Input.GetKeyDown(KeyCode.Escape);
+		bool escape = Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button1);
+		bool input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		if (left) {
 			menuIndex = ((menuIndex - 1) + menuSprite.Length) % menuSprite.Length;
@@ -32,6 +33,12 @@ public class MenuChanger : MonoBehaviour {
 		
 		if (escape) {
 			Application.Quit();
+		}
+		
+		if (input) {
+			Application.LoadLevel(1);
+			//Application.LoadLevelAsync(1);
+			//Application.LoadLevelAdditiveAsync(1);
 		}
 	}
 	
