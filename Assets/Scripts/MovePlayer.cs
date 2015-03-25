@@ -14,7 +14,7 @@ public class MovePlayer : MonoBehaviour {
 	void Update () {
 		bool rightKey = Input.GetKey(KeyCode.RightArrow);
 		bool leftKey = Input.GetKey(KeyCode.LeftArrow);
-		
+		bool restart = Input.GetKeyDown(KeyCode.R);
 		float axis = Input.GetAxis("Horizontal");
 		
 		
@@ -24,6 +24,11 @@ public class MovePlayer : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(-force, 0);
 		} else {
 			rigidbody2D.velocity = new Vector2(0, 0);
+		}
+		
+		if (restart) {
+			print("restart");
+			Application.LoadLevel(Application.loadedLevel);
 		}
 	}
 }

@@ -9,12 +9,12 @@ public class Hunger : MonoBehaviour {
 	
 	private float hunger;
 	private float second = 0;
-	private Text text;
+	private Slider slider;
 	
 	// Use this for initialization
 	void Start () {
 		hunger = maxHunger;
-		text = hungerLevel.GetComponent<Text>();
+		slider = hungerLevel.GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class Hunger : MonoBehaviour {
 			if (hunger <= 0) PlayerDead();
 		}
 		
-		text.text = hunger + "";
+		slider.value = hunger;
 	}
 	
 	void PlayerDead() {

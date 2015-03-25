@@ -53,9 +53,7 @@ public class DateAndTime : MonoBehaviour {
 		if (minute < 10) minuteString = "0" + minute;
 		else minuteString = minute + "";
 		
-		if ((int)Time.timeSinceLevelLoad % 2 == 0)
-			text.text = startDate + " " + month + " " + year + "\n" + hourString + " : " + minuteString + "\n";
-		else text.text = startDate + " " + month + " " + year + "\n" + hourString + "   " + minuteString + "\n";
+		text.text = startDate + " " + month + " " + year + "\n" + hourString + " : " + minuteString + "\n";
 	}
 	
 	void OnTimeIsOver() {
