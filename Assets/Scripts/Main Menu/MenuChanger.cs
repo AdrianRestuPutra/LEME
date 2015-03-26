@@ -36,7 +36,7 @@ public class MenuChanger : MonoBehaviour {
 		}
 		
 		if (input) {
-			Application.LoadLevel(1);
+			Application.LoadLevel(2);
 			//Application.LoadLevelAsync(1);
 			//Application.LoadLevelAdditiveAsync(1);
 		}
