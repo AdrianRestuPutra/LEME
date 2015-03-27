@@ -45,7 +45,7 @@ public class DialoguerGUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(_showWindow){
-			if(Input.GetMouseButtonDown(0)){
+			if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.KeypadEnter)  || Input.GetKeyDown(KeyCode.Return)){
 				if(_choices != null){
 					audioSelect.Play();
 				}
@@ -71,6 +71,7 @@ public class DialoguerGUI : MonoBehaviour {
 	private void onDialogueEndedHandler(){
 		_dialogue = false;
 		_showWindow = false;
+		AddUserInput ();
 	}
 	
 	private void onDialogueInstantlyEndedHandler(){
@@ -205,15 +206,13 @@ public class DialoguerGUI : MonoBehaviour {
 		}
 	}
 	#endregion
-	/*
 
 	private void AddUserInput() {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		MovePlayer movePlayer = player.GetComponent<MovePlayer> ();
 		movePlayer.enabled = true;
 	}
-
-	 */
+	
 }
 
 [System.Serializable]
