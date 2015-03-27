@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class DialoguerGUI : MonoBehaviour {
+public class NextGenRpgGui : MonoBehaviour {
 	
 	private static int TEXT_OUTLINE_WIDTH = 1;
 	
@@ -17,8 +17,8 @@ public class DialoguerGUI : MonoBehaviour {
 	public Texture ringTop;
 	public Texture ringBottom;
 	
-	public NGRPieces ringNormal;
-	public NGRPieces ringHover;
+	public NextGenRingPieces ringNormal;
+	public NextGenRingPieces ringHover;
 	
 	private int _currentChoice;
 	private Rect[] _ringeRects;
@@ -30,11 +30,11 @@ public class DialoguerGUI : MonoBehaviour {
 	
 	private string _text;
 	private string[] _choices;
-	
+
 	void Awake(){
 		Dialoguer.Initialize();
 	}
-	
+
 	// Use this for initialization
 	void Start () {
 		addDialoguerEvents();
@@ -205,19 +205,10 @@ public class DialoguerGUI : MonoBehaviour {
 		}
 	}
 	#endregion
-	/*
-
-	private void AddUserInput() {
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		MovePlayer movePlayer = player.GetComponent<MovePlayer> ();
-		movePlayer.enabled = true;
-	}
-
-	 */
 }
 
 [System.Serializable]
-public class NGRPieces{
+public class NextGenRingPieces{
 	public Texture topLeft;
 	public Texture topRight;
 	
