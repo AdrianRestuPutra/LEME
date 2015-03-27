@@ -3,8 +3,10 @@ using System.Collections;
 
 public class HitObject : MonoBehaviour {
 	public GameObject player;
+	public int[] dialogueID;
 	private bool input;
 	private bool isObjectCollideWithPlayer = false;
+	private bool isShown = false;
 
 	void Awake(){
 		Dialoguer.Initialize ();
@@ -21,11 +23,16 @@ public class HitObject : MonoBehaviour {
 	}
 
 	void GetInputFromUser() {
-		input = Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 
 		if (input && isObjectCollideWithPlayer) {
-			Dialoguer.StartDialogue(0,dialoguerCallBack);
-			RemoveUserInput();
+			if (isShown == false) {
+				isShown = true;
+				int id = Random.Range(0, dialogueID.Length);
+				Dialoguer.StartDialogue(dialogueID[id],dialoguerCallBack);
+				RemoveUserInput();
+			} else
+				isShown = false; 
 		}
 	}
 

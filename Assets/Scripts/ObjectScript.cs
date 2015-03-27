@@ -60,6 +60,7 @@ public class ObjectScript : MonoBehaviour {
 		objectShown.name = "Object Shown";
 		objectShown.AddComponent("SpriteRenderer");
 		objectShown.GetComponent<SpriteRenderer>().sprite = objectImage;
+		objectShown.GetComponent<SpriteRenderer>().sortingOrder = 11;
 		
 		Destroy((GameObject)Instantiate(objectShown));
 		
@@ -80,6 +81,7 @@ public class ObjectScript : MonoBehaviour {
 		
 		rigidbody2D.velocity = new Vector2(0, 0);
 		movePlayer.enabled = false;
+		player.GetComponent<MovePlayer>().playerGraphic.GetComponent<Animator>().SetBool("Walk", false);
 	}
 	
 	void AddUserInput() {

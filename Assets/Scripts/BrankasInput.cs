@@ -23,6 +23,9 @@ public class BrankasInput : MonoBehaviour {
 		for(int i=0;i<4;i++)
 			startDigit[i] = 0;
 			
+		for(int i=0;i<4;i++)
+			shownDigit[i].GetComponent<MeshRenderer>().sortingOrder = 12;
+		
 		player = GameObject.FindWithTag("Player");
 		mainCamera = GameObject.FindWithTag("MainCamera");
 		
@@ -100,6 +103,7 @@ public class BrankasInput : MonoBehaviour {
 	
 	void RemoveBrankas() {
 		player.GetComponent<MovePlayer>().enabled = true;
+		player.GetComponent<MovePlayer>().playerGraphic.GetComponent<Animator>().SetBool("Walk", false);
 		brankas.GetComponent<Brankas>().enabled = true;
 		Destroy(this.gameObject);
 	}

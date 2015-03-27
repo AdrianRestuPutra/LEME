@@ -28,6 +28,7 @@ public class Brankas : MonoBehaviour {
 			Instantiate(brankasInput);
 			gameObject.GetComponent<Brankas>().enabled = false;
 			player.GetComponent<MovePlayer>().enabled = false;
+			player.GetComponent<MovePlayer>().playerGraphic.GetComponent<Animator>().SetBool("Walk", false);
 			print("Action Accepted");
 		}
 	}
