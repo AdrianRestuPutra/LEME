@@ -13,4 +13,13 @@ public enum DialoguerDialogues{
 	EmpthStorage = 15,
 	NothingUseful = 16,
 	BlockedPath = 19,
+	Wastafel = 20,
+	wastafel = 22,
+	Toilet = 23,
+	lockedDoor = 26,
+	Hydrant = 27,
+	Cupboard = 29,
+	Vase = 31,
+	Mirror = 35,
+	Trash = 36,
 }

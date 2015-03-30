@@ -22,7 +22,7 @@ public class ExitDoor : MonoBehaviour {
 		if (input && isObjectCollideWithPlayer) {
 			if (player.GetComponent<PlayerBag>().IsCollected("exit-key")) {
 				print("KELUAR");
-				Application.Quit();
+				Application.LoadLevel(1);
 			}
 		}
 	}

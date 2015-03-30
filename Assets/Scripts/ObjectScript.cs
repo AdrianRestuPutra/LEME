@@ -82,6 +82,7 @@ public class ObjectScript : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(0, 0);
 		movePlayer.enabled = false;
 		player.GetComponent<MovePlayer>().playerGraphic.GetComponent<Animator>().SetBool("Walk", false);
+		player.GetComponents<AudioSource>()[0].enabled = false;
 	}
 	
 	void AddUserInput() {

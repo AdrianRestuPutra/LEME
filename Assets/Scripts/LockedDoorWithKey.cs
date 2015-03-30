@@ -27,7 +27,11 @@ public class LockedDoorWithKey : MonoBehaviour {
 			if (playerBag.IsCollected(keyName)) {
 				// Move Player to next object
 				player.transform.position = moveTo.transform.position;
-			} else print("You don't have a key");
+				player.GetComponent<MovePlayer>().PlayOpenDoor();
+			} else {
+				print("You don't have a key");
+				audio.Play();
+			}
 		}
 	}
 	

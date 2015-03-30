@@ -3,10 +3,12 @@ using System.Collections;
 
 public class DialoguerGUI : MonoBehaviour {
 	
-	private static int TEXT_OUTLINE_WIDTH = 1;
+	private static int TEXT_OUTLINE_WIDTH = 3;
 	
 	// GUI Skin
 	public GUISkin guiSkin;
+	public Font font;
+	public int fontSize;
 	
 	// Audio
 	public AudioSource audioChoice;
@@ -44,14 +46,14 @@ public class DialoguerGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(_showWindow){
+		/*if(_showWindow){
 			if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.KeypadEnter)  || Input.GetKeyDown(KeyCode.Return)){
 				if(_choices != null){
 					audioSelect.Play();
 				}
 				Dialoguer.ContinueDialogue(_currentChoice);
 			}
-		}
+		}*/
 	}
 	
 	#region Dialoguer
@@ -120,8 +122,8 @@ public class DialoguerGUI : MonoBehaviour {
 		GUI.skin = guiSkin;
 		
 		//int textY = (_choices == null) ? 100 : 260;
-		int textY = 260;
-		Rect textRect = new Rect(Screen.width*0.5f - 300, Screen.height - textY, 600, 80);
+		int textY = 200;
+		Rect textRect = new Rect(Screen.width*0.5f - 300, Screen.height - textY, 600, 200);
 		//GUI.Box(textRect, string.Empty);
 		
 		GUIStyle style = new GUIStyle("label");
@@ -140,6 +142,8 @@ public class DialoguerGUI : MonoBehaviour {
 	
 	private void drawText(string text, Rect rect, GUIStyle style){
 		GUI.color = Color.black;
+		style.fontSize = fontSize;
+		style.font = font;
 		for(int x=0; x<TEXT_OUTLINE_WIDTH; x+=1){
 			for(int y=0; y<TEXT_OUTLINE_WIDTH; y+=1){
 				GUI.Label(new Rect(rect.x + (x+1), rect.y + (y+1), rect.width, rect.height), text, style);

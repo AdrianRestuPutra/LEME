@@ -5,6 +5,7 @@ public class ChangeRoom : MonoBehaviour {
 
 	public GameObject moveTo;
 	public GameObject player;
+	public bool makeSound = true;
 	
 	private bool isObjectCollideWithPlayer = false;
 	
@@ -23,6 +24,8 @@ public class ChangeRoom : MonoBehaviour {
 		
 		if (input && isObjectCollideWithPlayer) {
 			player.transform.position = moveTo.transform.position;
+			if (makeSound)
+				player.GetComponent<MovePlayer>().PlayOpenDoor();
 		}
 	}
 	

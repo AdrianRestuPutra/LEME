@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BrankasInput : MonoBehaviour {
@@ -9,6 +10,9 @@ public class BrankasInput : MonoBehaviour {
 	public GameObject[] shownDigit;
 	public int rightAnswer;
 	public string objectInside;
+	
+	public GameObject hudChat;
+	public string chatMessage;
 	
 	private int[] startDigit = new int[4];
 	private int indexBrankas = 0;
@@ -55,24 +59,24 @@ public class BrankasInput : MonoBehaviour {
 		
 		bool cancel = Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Joystick1Button1);
 		
-		float hAxisXBOX = Input.GetAxis("Horizontal");
-		float vAxisXBOX = Input.GetAxis("Vertical");
+		float hAxisXBOX = Input.GetAxis("Horizontal_Joystick");
+		float vAxisXBOX = Input.GetAxis("Vertical_Joystick");
 		
-		if (hAxisXBOX >= 1 && xboxBeforeH != "RIGHT") {
+		if (hAxisXBOX >= 0.5 && xboxBeforeH != "RIGHT") {
 			right |= true;
 			xboxBeforeH = "RIGHT";
 			second = 0;
-		} else if (hAxisXBOX <= -1 && xboxBeforeH != "LEFT") {
+		} else if (hAxisXBOX <= -0.5 && xboxBeforeH != "LEFT") {
 			left |= true;
 			xboxBeforeH = "LEFT";
 			second = 0;
 		} else if (hAxisXBOX == 0) xboxBeforeH = "CENTER";
 		
-		if (vAxisXBOX >= 1 && xboxBeforeV != "UP") {
+		if (vAxisXBOX >= 0.5 && xboxBeforeV != "UP") {
 			up |= true;
 			xboxBeforeV = "UP";
 			second = 0;
-		} else if (vAxisXBOX <= -1 && xboxBeforeV != "DOWN") {
+		} else if (vAxisXBOX <= -0.5 && xboxBeforeV != "DOWN") {
 			down |= true;
 			xboxBeforeV = "DOWN";
 			second = 0;
@@ -89,9 +93,23 @@ public class BrankasInput : MonoBehaviour {
 			print (answer);
 			if (answer == rightAnswer) {
 				player.GetComponent<PlayerBag>().Collecting(objectInside);
+				if (hudChat) {
+					hudChat.GetComponent<Text>().text = chatMessage;
+					//hudChat.GetComponent<Animator>().SetTrigger("StartFade");
+					hudChat.GetComponent<Text>().color = new Color(0, 1, 0);
+					hudChat.GetComponent<Animator>().Play("Fade HUD Chat", -1, 0);
+				}
 				print ("Jawaban Benar");
 				RemoveBrankas();
-			} else print ("Jawaban Salah");
+			} else {
+				if (hudChat) {
+					hudChat.GetComponent<Text>().text = "Wrong code !";
+					//hudChat.GetComponent<Animator>().SetTrigger("StartFade");
+					hudChat.GetComponent<Text>().color = new Color(1, 0, 0);
+					hudChat.GetComponent<Animator>().Play("Fade HUD Chat", -1, 0);
+				}
+				print ("Jawaban Salah");
+			}
 		}
 		
 		if (cancel) {

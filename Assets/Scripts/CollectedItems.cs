@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CollectedItems : MonoBehaviour {
 	public GameObject player;
 	public string objectName;
+	public GameObject lockedDoor;
+	public bool removeAfterTake = false;
+	public GameObject hudChat;
+	public string chatMessage;
 	
 	private PlayerBag playerBag;
 	private bool isObjectCollideWithPlayer = false;
@@ -23,7 +28,18 @@ public class CollectedItems : MonoBehaviour {
 		
 		if (isObjectCollideWithPlayer && action) {
 			playerBag.Collecting(objectName);
-			Destroy(this.gameObject);
+			if (lockedDoor)
+				lockedDoor.GetComponent<HitObject>().enabled = false;
+			if (hudChat) {
+				hudChat.GetComponent<Text>().text = chatMessage;
+				hudChat.GetComponent<Text>().color = new Color(0, 1, 0);
+				hudChat.GetComponent<Animator>().Play("Fade HUD Chat", -1, 0);
+			}
+			GetComponent<CollectedItems>().enabled = false;
+			if (GetComponent<HitObject>())
+				GetComponent<HitObject>().enabled = true;
+			if (removeAfterTake)
+				Destroy(gameObject);
 		}
 	}
 	

@@ -5,6 +5,10 @@ public class SplashScreen : MonoBehaviour {
 
 	public float time = 6;
 
+	void Awake () {
+		Screen.showCursor = false;
+	}
+
 	// Use this for initialization
 	void Start () {
 		

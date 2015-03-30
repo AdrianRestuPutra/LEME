@@ -29,6 +29,7 @@ public class LockedDoorWithAxe : MonoBehaviour {
 					Destroy(woodLock);
 				} else {
 					player.transform.position = moveTo.transform.position;
+					player.GetComponent<MovePlayer>().PlayOpenDoor();
 				}
 			} else print("You don't have a axe");
 		}

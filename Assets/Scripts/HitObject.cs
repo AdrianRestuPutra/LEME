@@ -31,8 +31,10 @@ public class HitObject : MonoBehaviour {
 				int id = Random.Range(0, dialogueID.Length);
 				Dialoguer.StartDialogue(dialogueID[id],dialoguerCallBack);
 				RemoveUserInput();
-			} else
-				isShown = false; 
+			} else {
+				isShown = false;
+				Dialoguer.EndDialogue();
+			}
 		}
 	}
 
@@ -57,9 +59,15 @@ public class HitObject : MonoBehaviour {
 		
 		rigidbody2D.velocity = new Vector2(0, 0);
 		movePlayer.enabled = false;
+		player.GetComponent<MovePlayer>().playerGraphic.GetComponent<Animator>().SetBool("Walk", false);
+		player.GetComponents<AudioSource>()[0].enabled = false;
 	}
 
 	private void dialoguerCallBack(){
 		this.enabled = true;
+	}
+	
+	public bool GetIsShown() {
+		return isShown;
 	}
 }
