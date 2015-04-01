@@ -22,6 +22,7 @@ public class MovePlayer : MonoBehaviour {
 		bool rightKey = Input.GetKey(KeyCode.RightArrow);
 		bool leftKey = Input.GetKey(KeyCode.LeftArrow);
 		bool restart = Input.GetKeyDown(KeyCode.R);
+		bool backMenu = Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7);
 		float axis = Input.GetAxis("Horizontal_Joystick");
 		
 		
@@ -44,6 +45,10 @@ public class MovePlayer : MonoBehaviour {
 		if (restart) {
 			print("restart");
 			Application.LoadLevel(Application.loadedLevel);
+		}
+		
+		if (backMenu) {
+			Application.LoadLevel(1);
 		}
 	}
 	

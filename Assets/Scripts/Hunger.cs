@@ -31,7 +31,7 @@ public class Hunger : MonoBehaviour {
 	}
 	
 	void PlayerDead() {
-		
+		Application.LoadLevel(4);
 	}
 	
 	public void PlayerEat() {
