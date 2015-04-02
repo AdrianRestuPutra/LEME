@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using Parse;
 using System.Collections;
 
 public class ExitDoor : MonoBehaviour {
 	public GameObject player;
+	public bool isBlindMode;
+	public string className;
 
 	private bool isObjectCollideWithPlayer = false;
 	
@@ -22,6 +25,13 @@ public class ExitDoor : MonoBehaviour {
 		if (input && isObjectCollideWithPlayer) {
 			if (player.GetComponent<PlayerBag>().IsCollected("exit-key")) {
 				print("KELUAR");
+				if (isBlindMode) {
+					ParseObject obj = new ParseObject(className);
+					obj["userId"] = "1234567890";
+					obj["userName"] = "madya121";
+					obj["timeMs"] = 1000;
+					obj.SaveAsync();
+				}
 				Application.LoadLevel(1);
 			}
 		}

@@ -7,6 +7,7 @@ public class SplashScreen : MonoBehaviour {
 
 	void Awake () {
 		Screen.showCursor = false;
+		Application.targetFrameRate = -1;
 	}
 
 	// Use this for initialization

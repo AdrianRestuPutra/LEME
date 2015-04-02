@@ -7,6 +7,8 @@ public class MenuChanger : MonoBehaviour {
 	public Sprite[] menuSprite;
 	public int[] puzzleLevel;
 	public int[] blindLevel;
+	public GameObject soundBGM;
+	public GameObject lampMainMenu;
 	
 	private int menuIndex = 0;
 	private string xboxBeforeH = "CENTER";
@@ -26,8 +28,10 @@ public class MenuChanger : MonoBehaviour {
 		bool right = Input.GetKeyDown(KeyCode.RightArrow);
 		bool escape = Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button1);
 		
-		bool input = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button2);
+		bool input = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		bool inputMaze = Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown(KeyCode.Joystick1Button3);
+		
+		bool setting = Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Joystick1Button2);
 		
 		float hAxisXBOX = Input.GetAxis("Horizontal_Joystick");
 		
@@ -52,13 +56,21 @@ public class MenuChanger : MonoBehaviour {
 		}
 		
 		if (input) {
+			Destroy(soundBGM);
+			Destroy(lampMainMenu);
 			if (puzzleLevel[menuIndex] != -1)
 				Application.LoadLevel(puzzleLevel[menuIndex]);
 		}
 		
 		if (inputMaze) {
+			Destroy(soundBGM);
+			Destroy(lampMainMenu);
 			if (blindLevel[menuIndex] != -1)
 				Application.LoadLevel(blindLevel[menuIndex]);
+		}
+		
+		if (setting) {
+			Application.LoadLevel(5);
 		}
 	}
 	

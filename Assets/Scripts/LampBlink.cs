@@ -5,6 +5,9 @@ public class LampBlink : MonoBehaviour {
 	
 	public float timeBlink;
 	public int chanceBlink;
+	public bool useIntensity;
+	public float intensityBefore;
+	public float intensityAfter;
 	
 	private float second = 0;
 	private Light light;
@@ -21,9 +24,15 @@ public class LampBlink : MonoBehaviour {
 		if (second >= timeBlink) {
 			second = 0;
 			if (Random.Range(1, 101) <= chanceBlink) {
-				if (light.enabled == true)
-					light.enabled = false;
-				else light.enabled = true;
+				if (!useIntensity) {
+					if (light.enabled == true)
+						light.enabled = false;
+					else light.enabled = true;
+				} else {
+					if (light.intensity == intensityAfter)
+						light.intensity = intensityBefore;
+					else light.intensity = intensityAfter;
+				}
 			}
 		}
 	}
