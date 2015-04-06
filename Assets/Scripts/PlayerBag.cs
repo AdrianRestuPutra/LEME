@@ -3,9 +3,7 @@ using System.Collections;
 
 public class PlayerBag : MonoBehaviour {
 	
-	Hashtable playerBag;
-	ArrayList arrayList;
-	
+	public Hashtable playerBag;
 	
 	void Awake () {
 		playerBag = new Hashtable();

@@ -56,17 +56,19 @@ public class MenuChanger : MonoBehaviour {
 		}
 		
 		if (input) {
-			Destroy(soundBGM);
-			Destroy(lampMainMenu);
-			if (puzzleLevel[menuIndex] != -1)
+			if (puzzleLevel[menuIndex] != -1) {
+				Destroy(soundBGM);
+				Destroy(lampMainMenu);
 				Application.LoadLevel(puzzleLevel[menuIndex]);
+			}
 		}
 		
 		if (inputMaze) {
-			Destroy(soundBGM);
-			Destroy(lampMainMenu);
-			if (blindLevel[menuIndex] != -1)
+			if (blindLevel[menuIndex] != -1) {
+				Destroy(soundBGM);
+				Destroy(lampMainMenu);
 				Application.LoadLevel(blindLevel[menuIndex]);
+			}
 		}
 		
 		if (setting) {
