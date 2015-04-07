@@ -9,6 +9,7 @@ public class SettingMainMenu : MonoBehaviour {
 	public bool isResolutionSetting;
 	public bool isGraphicSetting;
 	public bool isScreenSetting;
+	public GameObject mainScreen;
 	public GameObject mainSetting;
 	public GameObject graphicSetting;
 	public GameObject resolutionSetting;
@@ -33,7 +34,8 @@ public class SettingMainMenu : MonoBehaviour {
 		bool up = Input.GetKeyDown(KeyCode.UpArrow);
 		bool down = Input.GetKeyDown(KeyCode.DownArrow);
 		bool ok = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0);
-		bool back = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Joystick1Button1);
+		bool back = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Joystick1Button1)
+			|| Input.GetKeyDown(KeyCode.Escape);
 		float vAxisXBOX = Input.GetAxis("Vertical_Joystick");
 		
 		if (vAxisXBOX >= 0.5 && xboxBeforeV != "UP") {
@@ -77,22 +79,22 @@ public class SettingMainMenu : MonoBehaviour {
 	
 	void MainSettingChoose() {
 		if (index == 0) {
-			this.GetComponent<RectTransform>().position = new Vector3(-1000, 111);
+			this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 			this.enabled = false;
 			
-			graphicSetting.GetComponent<RectTransform>().position = new Vector3(143, 111);
+			graphicSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 			graphicSetting.GetComponent<SettingMainMenu>().enabled = true;
 		} else if (index == 1) {
-			this.GetComponent<RectTransform>().position = new Vector3(-1000, 111);
+			this.GetComponent<RectTransform>().offsetMin = new Vector3(-1000, 0);
 			this.enabled = false;
 			
-			resolutionSetting.GetComponent<RectTransform>().position = new Vector3(143, 111);
+			resolutionSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 			resolutionSetting.GetComponent<SettingMainMenu>().enabled = true;
 		} else if (index == 2) {
-			this.GetComponent<RectTransform>().position = new Vector3(-1000, 111);
+			this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 			this.enabled = false;
 			
-			screenSetting.GetComponent<RectTransform>().position = new Vector3(143, 111);
+			screenSetting.GetComponent<RectTransform>().offsetMin = new Vector3(0, 0);
 			screenSetting.GetComponent<SettingMainMenu>().enabled = true;
 		}
 	}
@@ -114,30 +116,34 @@ public class SettingMainMenu : MonoBehaviour {
 	}
 	
 	void MainSettingBack() {
-		Application.LoadLevel(1);
+		this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
+		this.enabled = false;
+		
+		mainScreen.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+		mainScreen.GetComponent<MainMenu>().enabled = true;
 	}
 	
 	void ResolutionSettingBack() {
-		this.GetComponent<RectTransform>().position = new Vector3(-1000, 111);
+		this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 		this.enabled = false;
 		
-		mainSetting.GetComponent<RectTransform>().position = new Vector3(143, 111);
+		mainSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 		mainSetting.GetComponent<SettingMainMenu>().enabled = true;
 	}
 	
 	void GraphicSettingBack() {
-		this.GetComponent<RectTransform>().position = new Vector3(-1000, 111);
+		this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 		this.enabled = false;
 		
-		mainSetting.GetComponent<RectTransform>().position = new Vector3(143, 111);
+		mainSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 		mainSetting.GetComponent<SettingMainMenu>().enabled = true;
 	}
 	
 	void ScreenSettingBack() {
-		this.GetComponent<RectTransform>().position = new Vector3(-1000, 111);
+		this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 		this.enabled = false;
 		
-		mainSetting.GetComponent<RectTransform>().position = new Vector3(143, 111);
+		mainSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 		mainSetting.GetComponent<SettingMainMenu>().enabled = true;
 	}
 }

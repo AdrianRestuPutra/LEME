@@ -6,12 +6,13 @@ public class ExitDoor : MonoBehaviour {
 	public GameObject player;
 	public bool isBlindMode;
 	public string className;
+	public GameObject passed;
 
 	private bool isObjectCollideWithPlayer = false;
 	
 	// Use this for initialization
 	void Start () {
-	
+		//player.GetComponent<PlayerBag>().Collecting("exit-key");
 	}
 	
 	// Update is called once per frame
@@ -26,13 +27,27 @@ public class ExitDoor : MonoBehaviour {
 			if (player.GetComponent<PlayerBag>().IsCollected("exit-key")) {
 				print("KELUAR");
 				if (isBlindMode) {
-					ParseObject obj = new ParseObject(className);
+					/*ParseObject obj = new ParseObject(className);
 					obj["userId"] = "1234567890";
 					obj["userName"] = "madya121";
 					obj["timeMs"] = 1000;
-					obj.SaveAsync();
+					obj.SaveAsync();*/
 				}
-				Application.LoadLevel(1);
+				//Application.LoadLevel(2);
+				
+				passed.GetComponent<SpriteRenderer>().enabled = true;
+				passed.GetComponent<Animator>().SetTrigger("Passed");
+				passed.GetComponent<PassedOrFailed>().enabled = true;
+				
+				Object[] objects = GameObject.FindObjectsOfType<GameObject>();
+				foreach (Object _object in objects) {
+					if (_object.Equals(passed) == false) {
+						MonoBehaviour[] monoBehaviors = ((GameObject)_object).GetComponents<MonoBehaviour>();
+						foreach(MonoBehaviour monoBehavior in monoBehaviors) {
+							monoBehavior.enabled = false;
+						}
+					}
+				}
 			}
 		}
 	}
