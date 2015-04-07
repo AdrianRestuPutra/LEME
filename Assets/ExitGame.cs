@@ -56,6 +56,7 @@ public class ExitGame : MonoBehaviour {
 				mainScreen.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 				mainScreen.GetComponent<MainMenu>().enabled = true;
 			}
+			index = 0;
 		}
 		
 		if (back) {
@@ -64,6 +65,7 @@ public class ExitGame : MonoBehaviour {
 			
 			mainScreen.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 			mainScreen.GetComponent<MainMenu>().enabled = true;
+			index = 0;
 		}
 	}
 	
@@ -72,6 +74,6 @@ public class ExitGame : MonoBehaviour {
 			child[i].GetComponent<Text>().color = new Color(1,1,1);
 		}
 		
-		child[index].GetComponent<Text>().color = new Color(0,1,0);
+		child[index].GetComponent<Text>().color = new Color(0.184f,0.67f,0.17f);
 	}
 }

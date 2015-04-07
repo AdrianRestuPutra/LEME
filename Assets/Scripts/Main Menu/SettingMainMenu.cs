@@ -59,6 +59,7 @@ public class SettingMainMenu : MonoBehaviour {
 			if (isGraphicSetting) GraphicSettingChoose();
 			if (isResolutionSetting) ResolutionSettingChoose();
 			if (isScreenSetting) ScreenSettingChoose();
+			index = 0;
 		}
 		
 		if (back) {
@@ -66,6 +67,7 @@ public class SettingMainMenu : MonoBehaviour {
 			if (isGraphicSetting) GraphicSettingBack();
 			if (isResolutionSetting) ResolutionSettingBack();
 			if (isScreenSetting) ScreenSettingBack();
+			index = 0;
 		}
 	}
 	
@@ -74,7 +76,7 @@ public class SettingMainMenu : MonoBehaviour {
 			listMenu[i].GetComponent<Text>().color = new Color(1,1,1);
 		}
 		
-		listMenu[index].GetComponent<Text>().color = new Color(0,1,0);
+		listMenu[index].GetComponent<Text>().color = new Color(0.184f,0.67f,0.17f);
 	}
 	
 	void MainSettingChoose() {

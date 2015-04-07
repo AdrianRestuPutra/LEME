@@ -49,6 +49,7 @@ public class MainMenu : MonoBehaviour {
 		
 		if (ok) {
 			MainScreenChoose();
+			index = 0;
 		}
 		
 		if (back) {
@@ -57,6 +58,8 @@ public class MainMenu : MonoBehaviour {
 			
 			exitSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 			exitSetting.GetComponent<ExitGame>().enabled = true;
+			
+			index = 0;
 		}
 	}
 	
@@ -65,7 +68,7 @@ public class MainMenu : MonoBehaviour {
 			listMenu[i].GetComponent<Text>().color = new Color(1,1,1);
 		}
 		
-		listMenu[index].GetComponent<Text>().color = new Color(0,1,0);
+		listMenu[index].GetComponent<Text>().color = new Color(0.184f,0.67f,0.17f);
 	}
 	
 	void MainScreenChoose() {

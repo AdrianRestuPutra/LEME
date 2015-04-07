@@ -58,10 +58,16 @@ public class LevelSelectionScript : MonoBehaviour {
 		}
 		
 		if (input) {
+			if (GameObject.Find("Sound")) {
+				Destroy(GameObject.Find("Sound"));
+			}
 			Application.LoadLevel(levelPuzzle[index]);
 		}
 		
 		if (inputMaze) {
+			if (GameObject.Find("Sound")) {
+				Destroy(GameObject.Find("Sound"));
+			}
 			Application.LoadLevel(levelMaze[index]);
 		}
 		
