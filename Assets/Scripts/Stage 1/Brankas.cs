@@ -6,6 +6,8 @@ public class Brankas : MonoBehaviour {
 	public GameObject brankasInput;
 	public GameObject hudChat;
 	public string chatMessage;
+	public int rightAnswer;
+	public string objectName;
 	
 	private bool isObjectCollideWithPlayer = false;
 	private GameObject objectShownInCamera;
@@ -18,6 +20,8 @@ public class Brankas : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInputFromUser();
+		if (player.GetComponent<PlayerBag>().IsCollected(objectName))
+			Destroy(gameObject);
 	}
 	
 	void GetInputFromUser() {
@@ -25,8 +29,8 @@ public class Brankas : MonoBehaviour {
 		
 		if (action && isObjectCollideWithPlayer) {
 			brankasInput.GetComponent<BrankasInput>().brankas = gameObject;
-			brankasInput.GetComponent<BrankasInput>().rightAnswer = 1208;
-			brankasInput.GetComponent<BrankasInput>().objectInside = "exit-key";
+			brankasInput.GetComponent<BrankasInput>().rightAnswer = rightAnswer;
+			brankasInput.GetComponent<BrankasInput>().objectInside = objectName;
 			brankasInput.GetComponent<BrankasInput>().hudChat = hudChat;
 			brankasInput.GetComponent<BrankasInput>().chatMessage = chatMessage;
 			Instantiate(brankasInput);

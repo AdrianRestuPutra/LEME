@@ -59,7 +59,6 @@ public class SettingMainMenu : MonoBehaviour {
 			if (isGraphicSetting) GraphicSettingChoose();
 			if (isResolutionSetting) ResolutionSettingChoose();
 			if (isScreenSetting) ScreenSettingChoose();
-			index = 0;
 		}
 		
 		if (back) {

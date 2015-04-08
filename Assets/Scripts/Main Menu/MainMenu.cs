@@ -49,7 +49,6 @@ public class MainMenu : MonoBehaviour {
 		
 		if (ok) {
 			MainScreenChoose();
-			index = 0;
 		}
 		
 		if (back) {
@@ -67,12 +66,21 @@ public class MainMenu : MonoBehaviour {
 		for(int i=0;i<listMenu.Length;i++) {
 			listMenu[i].GetComponent<Text>().color = new Color(1,1,1);
 		}
-		
-		listMenu[index].GetComponent<Text>().color = new Color(0.184f,0.67f,0.17f);
+		if (index == 0) {
+			if (SaveLoadGame.SavedExist() == false)
+				listMenu[index].GetComponent<Text>().color = new Color(0.47f,0.12f,0.12f);
+			else listMenu[index].GetComponent<Text>().color = new Color(0.184f,0.67f,0.17f);
+		} else listMenu[index].GetComponent<Text>().color = new Color(0.184f,0.67f,0.17f);
 	}
 	
 	void MainScreenChoose() {
-		if (index == 0);
+		if (index == 0) {
+			if (SaveLoadGame.Load()) {
+				Destroy(GameObject.Find("Sound"));
+				DontDestroyOnLoad(GameObject.Find("Load From File"));
+				Application.LoadLevel((string)SaveLoadGame.playerData.additionalData["Level"]);
+			}
+		}
 		if (index == 1) Application.LoadLevel(2);
 		if (index == 2) {
 			this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);

@@ -16,14 +16,25 @@ public class FoodStock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		RefreshVisual();
+	}
+	
+	void RefreshVisual() {
+		textMesh.text = foodStock + " / " + maxFoodStock;
 	}
 	
 	public bool PlayerEat() {
 		if (foodStock > 0) {
 			foodStock--;
-			textMesh.text = foodStock + " / " + maxFoodStock;
 			return true;
 		} else return false;
+	}
+	
+	public int GetFoodStock() {
+		return foodStock;
+	}
+	
+	public void SetFoodStock(int _foodStock) {
+		foodStock = _foodStock;
 	}
 }

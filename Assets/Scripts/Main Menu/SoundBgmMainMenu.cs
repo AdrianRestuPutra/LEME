@@ -8,7 +8,7 @@ public class SoundBgmMainMenu : MonoBehaviour {
 		
 		if (FindObjectsOfType(GetType()).Length > 1) {
 			Destroy(gameObject);
-		}
+		} else GetComponent<AudioSource>().enabled = true;
 	}
 
 	// Use this for initialization

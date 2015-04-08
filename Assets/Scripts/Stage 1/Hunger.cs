@@ -37,6 +37,9 @@ public class Hunger : MonoBehaviour {
 		failed.GetComponent<Animator>().SetTrigger("Failed");
 		failed.GetComponent<PassedOrFailed>().enabled = true;
 		
+		GameObject.Find("Player Graphic").GetComponent<Animator>().SetBool("Walk", false);
+		GetComponent<AudioSource>().enabled = false;
+		
 		Object[] objects = GameObject.FindObjectsOfType<GameObject>();
 		foreach (Object _object in objects) {
 			if (_object.Equals(failed) == false) {
@@ -50,5 +53,13 @@ public class Hunger : MonoBehaviour {
 	
 	public void PlayerEat() {
 		hunger = maxHunger;
+	}
+	
+	public void SetHunger(float _hunger) {
+		hunger = _hunger;
+	}
+	
+	public float GetHunger() {
+		return hunger;
 	}
 }

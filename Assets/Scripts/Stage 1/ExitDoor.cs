@@ -2,6 +2,10 @@
 using Parse;
 using System.Collections;
 
+using System.Collections.Generic; 
+using System.Runtime.Serialization.Formatters.Binary; 
+using System.IO;
+
 public class ExitDoor : MonoBehaviour {
 	public GameObject player;
 	public bool isBlindMode;
@@ -32,12 +36,18 @@ public class ExitDoor : MonoBehaviour {
 					obj["userName"] = "madya121";
 					obj["timeMs"] = 1000;
 					obj.SaveAsync();*/
+				} else {
+					if (SaveLoadGame.SavedExist())
+						File.Delete(Application.persistentDataPath + "/LeMe.zd");
 				}
 				//Application.LoadLevel(2);
 				
 				passed.GetComponent<SpriteRenderer>().enabled = true;
 				passed.GetComponent<Animator>().SetTrigger("Passed");
 				passed.GetComponent<PassedOrFailed>().enabled = true;
+				
+				GameObject.Find("Player Graphic").GetComponent<Animator>().SetBool("Walk", false);
+				player.GetComponent<AudioSource>().enabled = false;
 				
 				Object[] objects = GameObject.FindObjectsOfType<GameObject>();
 				foreach (Object _object in objects) {

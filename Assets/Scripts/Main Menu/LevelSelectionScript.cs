@@ -14,8 +14,9 @@ public class LevelSelectionScript : MonoBehaviour {
 	public string[] listFloor;
 	public string[] listDifficulties;
 	public string[] listFoodStock;
-	public int[] levelPuzzle;
-	public int[] levelMaze;
+	public string[] levelName;
+	
+	public GameObject[] textIfSavedExist;
 
 	private int index;
 	private string xboxBeforeH = "CENTER";
@@ -35,7 +36,8 @@ public class LevelSelectionScript : MonoBehaviour {
 		bool left = Input.GetKeyDown(KeyCode.LeftArrow);
 		bool right = Input.GetKeyDown(KeyCode.RightArrow);
 		
-		bool input = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool input = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0) 
+			|| Input.GetKeyDown(KeyCode.A);
 		bool inputMaze = Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown(KeyCode.Joystick1Button3);
 		
 		bool back = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Joystick1Button1)
@@ -61,14 +63,14 @@ public class LevelSelectionScript : MonoBehaviour {
 			if (GameObject.Find("Sound")) {
 				Destroy(GameObject.Find("Sound"));
 			}
-			Application.LoadLevel(levelPuzzle[index]);
+			Application.LoadLevel(levelName[index]);
 		}
 		
 		if (inputMaze) {
 			if (GameObject.Find("Sound")) {
 				Destroy(GameObject.Find("Sound"));
 			}
-			Application.LoadLevel(levelMaze[index]);
+			Application.LoadLevel(levelName[index] + " Blind Mode");
 		}
 		
 		if (back) {
@@ -86,5 +88,11 @@ public class LevelSelectionScript : MonoBehaviour {
 		stageFloor.GetComponent<TextMesh>().text = listFloor[index];
 		stageDifficulties.GetComponent<TextMesh>().text = listDifficulties[index];
 		stageFoodStock.GetComponent<TextMesh>().text = listFoodStock[index];
+		
+		if (SaveLoadGame.SavedExist()) {
+			for(int i=0;i<textIfSavedExist.Length;i++) {
+				textIfSavedExist[i].GetComponent<MeshRenderer>().enabled = true;
+			}
+		}
 	}
 }

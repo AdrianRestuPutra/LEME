@@ -28,4 +28,8 @@ public static class SaveLoadGame {
 		}
 		return false;
 	}
+	
+	public static bool SavedExist() {
+		return File.Exists(Application.persistentDataPath + "/LeMe.zd");
+	}
 }

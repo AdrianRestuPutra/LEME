@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LockedDoorWithKey : MonoBehaviour {
-	
+public class LockedDoorWithAxe : MonoBehaviour {
 	public GameObject player;
 	public GameObject moveTo;
-	public string keyName;
+	public GameObject woodLock;
 	
 	private PlayerBag playerBag;
 	private bool isObjectCollideWithPlayer = false;
-
+	
 	// Use this for initialization
 	void Start () {
 		playerBag = player.GetComponent<PlayerBag>();
@@ -18,20 +17,25 @@ public class LockedDoorWithKey : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInputFromUser();
+		if (woodLock) {
+			if (playerBag.playerAdditionalData.Contains(woodLock.name))
+				Destroy(woodLock);
+		}
 	}
 	
 	void GetInputFromUser() {
 		bool action = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		if (action && isObjectCollideWithPlayer) {
-			if (playerBag.IsCollected(keyName)) {
+			if (playerBag.IsCollected("axe")) {
 				// Move Player to next object
-				player.transform.position = moveTo.transform.position;
-				player.GetComponent<MovePlayer>().PlayOpenDoor();
-			} else {
-				print("You don't have a key");
-				audio.Play();
-			}
+				if (woodLock) {
+					Destroy(woodLock);
+				} else {
+					player.transform.position = moveTo.transform.position;
+					player.GetComponent<MovePlayer>().PlayOpenDoor();
+				}
+			} else print("You don't have a axe");
 		}
 	}
 	

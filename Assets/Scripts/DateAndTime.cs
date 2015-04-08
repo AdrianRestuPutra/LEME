@@ -13,6 +13,7 @@ public class DateAndTime : MonoBehaviour {
 	private int hour = 0;
 	private int minute = 0;
 	private float second = 0;
+	private int minuteFromBegining = 0;
 	
 	private Text text;
 	
@@ -24,26 +25,11 @@ public class DateAndTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		RefreshVisual();
 		TimeChange();
 	}
 	
-	void TimeChange() {
-		second += Time.deltaTime;
-		
-		if (second >= minuteInSecond) {
-			// A SECOND HAS PASSED
-			second = 0;
-			minute += 1;
-			hour += (minute / 60);
-			dayTime -= (minute / 60);
-			startDate += (hour / 24);
-			
-			minute %= 60;
-			hour %= 24;
-			
-			if (dayTime <= 0) OnTimeIsOver();
-		}
-		
+	void RefreshVisual() {
 		string hourString;
 		string minuteString;
 		
@@ -56,7 +42,36 @@ public class DateAndTime : MonoBehaviour {
 		text.text = startDate + " " + month + " " + year + "\n" + hourString + " : " + minuteString + "\n";
 	}
 	
-	void OnTimeIsOver() {
+	void TimeChange() {
+		second += Time.deltaTime;
 		
+		if (second >= minuteInSecond) {
+			// A SECOND HAS PASSED
+			second = 0;
+			minute += 1;
+			hour += (minute / 60);
+			startDate += (hour / 24);
+			
+			minute %= 60;
+			hour %= 24;
+		}
+	}
+	
+	public void SetDate(int _minute, int _hour, int _startDate) {
+		minute = _minute;
+		hour = _hour;
+		startDate = _startDate;
+	}
+	
+	public int GetMinute() {
+		return minute;
+	}
+	
+	public int GetHour() {
+		return hour;
+	}
+	
+	public int GetStartDate() {
+		return startDate;
 	}
 }
