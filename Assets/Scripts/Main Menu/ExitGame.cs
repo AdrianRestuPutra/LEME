@@ -49,7 +49,7 @@ public class ExitGame : MonoBehaviour {
 		}
 		
 		if (ok) {
-			if (index == 0) Application.Quit();
+			if (index == 1) Application.Quit();
 			else {
 				this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 				this.enabled = false;

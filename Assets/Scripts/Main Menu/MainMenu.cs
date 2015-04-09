@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour {
 	public GameObject mainSetting;
 	public GameObject exitSetting;
 	
-	private int index = 0;
+	private int index = 1;
 	private string xboxBeforeH = "CENTER";
 	private string xboxBeforeV = "CENTER";
 
@@ -58,8 +58,6 @@ public class MainMenu : MonoBehaviour {
 			
 			exitSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 			exitSetting.GetComponent<ExitGame>().enabled = true;
-			
-			index = 0;
 		}
 	}
 	
