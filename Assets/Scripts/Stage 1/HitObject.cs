@@ -23,7 +23,7 @@ public class HitObject : MonoBehaviour {
 	}
 
 	void GetInputFromUser() {
-		input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		input = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 
 		if (input && isObjectCollideWithPlayer) {
 			if (isShown == false) {

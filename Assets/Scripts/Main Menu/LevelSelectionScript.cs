@@ -41,7 +41,7 @@ public class LevelSelectionScript : MonoBehaviour {
 		bool inputMaze = Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown(KeyCode.Joystick1Button3);
 		
 		bool back = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Joystick1Button1)
-			|| Input.GetKeyDown(KeyCode.Escape);
+			|| Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.B);
 		
 		float hAxisXBOX = Input.GetAxis("Horizontal_Joystick");
 		

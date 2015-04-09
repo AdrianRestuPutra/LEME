@@ -25,7 +25,7 @@ public class ExitDoor : MonoBehaviour {
 	}
 	
 	void GetInputFromUser() {
-		bool input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool input = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		if (input && isObjectCollideWithPlayer) {
 			if (player.GetComponent<PlayerBag>().IsCollected("exit-key")) {

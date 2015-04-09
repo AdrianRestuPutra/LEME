@@ -55,7 +55,7 @@ public class BrankasInput : MonoBehaviour {
 		bool up = Input.GetKeyDown(KeyCode.UpArrow);
 		bool down = Input.GetKeyDown(KeyCode.DownArrow);
 		
-		bool input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool input = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		bool cancel = Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Joystick1Button1);
 		

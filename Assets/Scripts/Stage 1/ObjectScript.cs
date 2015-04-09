@@ -22,7 +22,7 @@ public class ObjectScript : MonoBehaviour {
 	}
 	
 	void GetInputFromUser() {
-		bool action = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool action = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		if (action && isObjectCollideWithPlayer) {
 			if (isObjectShownInCamera == false) {

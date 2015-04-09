@@ -26,9 +26,10 @@ public class MainMenu : MonoBehaviour {
 	void InputManager() {
 		bool up = Input.GetKeyDown(KeyCode.UpArrow);
 		bool down = Input.GetKeyDown(KeyCode.DownArrow);
-		bool ok = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool ok = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0) 
+			|| Input.GetKeyDown(KeyCode.A);
 		bool back = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Joystick1Button1)
-			|| Input.GetKeyDown(KeyCode.Escape);
+			|| Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.B);
 		float vAxisXBOX = Input.GetAxis("Vertical_Joystick");
 		
 		if (vAxisXBOX >= 0.5 && xboxBeforeV != "UP") {

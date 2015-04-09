@@ -20,7 +20,7 @@ public class ChangeRoom : MonoBehaviour {
 	}
 	
 	void UserInput() {
-		bool input = Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool input = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		if (input && isObjectCollideWithPlayer) {
 			player.transform.position = moveTo.transform.position;
