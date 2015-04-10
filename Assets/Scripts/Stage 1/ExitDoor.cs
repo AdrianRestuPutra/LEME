@@ -42,6 +42,11 @@ public class ExitDoor : MonoBehaviour {
 				}
 				//Application.LoadLevel(2);
 				
+				ParseObject obj = new ParseObject("Statistik");
+				obj.ObjectId = "tJESUgUX5L";
+				obj.Increment("SuccessOut");
+				obj.SaveAsync();
+				
 				passed.GetComponent<SpriteRenderer>().enabled = true;
 				passed.GetComponent<Animator>().SetTrigger("Passed");
 				passed.GetComponent<PassedOrFailed>().enabled = true;

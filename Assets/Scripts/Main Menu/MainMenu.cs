@@ -76,6 +76,7 @@ public class MainMenu : MonoBehaviour {
 		if (index == 0) {
 			if (SaveLoadGame.Load()) {
 				Destroy(GameObject.Find("Sound"));
+				Destroy(GameObject.Find("Light Snow"));
 				DontDestroyOnLoad(GameObject.Find("Load From File"));
 				Application.LoadLevel((string)SaveLoadGame.playerData.additionalData["Level"]);
 			}

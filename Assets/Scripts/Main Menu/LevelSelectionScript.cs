@@ -60,16 +60,14 @@ public class LevelSelectionScript : MonoBehaviour {
 		}
 		
 		if (input) {
-			if (GameObject.Find("Sound")) {
-				Destroy(GameObject.Find("Sound"));
-			}
+			Destroy(GameObject.Find("Sound"));
+			Destroy(GameObject.Find("Light Snow"));
 			Application.LoadLevel(levelName[index]);
 		}
 		
 		if (inputMaze) {
-			if (GameObject.Find("Sound")) {
-				Destroy(GameObject.Find("Sound"));
-			}
+			Destroy(GameObject.Find("Sound"));
+			Destroy(GameObject.Find("Light Snow"));
 			Application.LoadLevel(levelName[index] + " Blind Mode");
 		}
 		
