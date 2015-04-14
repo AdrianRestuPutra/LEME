@@ -11,6 +11,7 @@ public class ExitDoor : MonoBehaviour {
 	public bool isBlindMode;
 	public string className;
 	public GameObject passed;
+	public bool dontSendData = false;
 
 	private bool isObjectCollideWithPlayer = false;
 	
@@ -42,10 +43,12 @@ public class ExitDoor : MonoBehaviour {
 				}
 				//Application.LoadLevel(2);
 				
-				ParseObject obj = new ParseObject("Statistik");
-				obj.ObjectId = "tJESUgUX5L";
-				obj.Increment("SuccessOut");
-				obj.SaveAsync();
+				if (!dontSendData) {
+					ParseObject obj = new ParseObject("Statistik");
+					obj.ObjectId = "tJESUgUX5L";
+					obj.Increment("SuccessOut");
+					obj.SaveAsync();
+				}
 				
 				passed.GetComponent<SpriteRenderer>().enabled = true;
 				passed.GetComponent<Animator>().SetTrigger("Passed");
