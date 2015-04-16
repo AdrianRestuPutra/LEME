@@ -7,11 +7,15 @@ public class FoodStock : MonoBehaviour {
 	
 	private TextMesh textMesh;
 	private int foodStock;
-
-	// Use this for initialization
-	void Start () {
+	
+	void Awake() {
 		textMesh = this.gameObject.GetComponent<TextMesh>();
 		foodStock = maxFoodStock;
+	}
+	
+	// Use this for initialization
+	void Start () {
+		
 	}
 	
 	// Update is called once per frame

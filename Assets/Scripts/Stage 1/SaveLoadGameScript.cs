@@ -9,6 +9,11 @@ public class SaveLoadGameScript : MonoBehaviour {
 	public GameObject dateAndTime;
 	public GameObject[] removedData;
 	public string[] removeDataName;
+	public string level;
+	
+	void Awake() {
+		
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -52,7 +57,7 @@ public class SaveLoadGameScript : MonoBehaviour {
 				}
 			}
 			
-			SaveLoadGame.playerData.additionalData["Level"] = "Stage1";
+			SaveLoadGame.playerData.additionalData["Level"] = level;
 			SaveLoadGame.Save();
 		}
 	}

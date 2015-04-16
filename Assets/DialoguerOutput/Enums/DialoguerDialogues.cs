@@ -22,4 +22,9 @@ public enum DialoguerDialogues{
 	Vase = 31,
 	Mirror = 35,
 	Trash = 36,
+	Electronic_Dead = 43,
+	Chair = 47,
+	Meja = 51,
+	Barang_Rusak = 54,
+	Blocked_Fire = 57,
 }
