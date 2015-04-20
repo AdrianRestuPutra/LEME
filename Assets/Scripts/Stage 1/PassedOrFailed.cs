@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class PassedOrFailed : MonoBehaviour {
-
+	
+	public bool isBlindMode = false;
 	public float time;
 
 	// Use this for initialization
@@ -14,7 +15,9 @@ public class PassedOrFailed : MonoBehaviour {
 	void Update () {
 		time -= Time.deltaTime;
 		if (time <= 0) {
-			Application.LoadLevel(2);
+			if (isBlindMode)
+				Application.LoadLevel("Score View");
+			else Application.LoadLevel(2);
 		}
 	}
 }

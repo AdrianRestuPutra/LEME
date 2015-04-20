@@ -10,6 +10,7 @@ public class ExitDoor : MonoBehaviour {
 	public GameObject player;
 	public bool isBlindMode;
 	public string className;
+	public GameObject mazeTimer;
 	public GameObject passed;
 	public bool dontSendData = false;
 
@@ -37,6 +38,7 @@ public class ExitDoor : MonoBehaviour {
 					obj["userName"] = "madya121";
 					obj["timeMs"] = 1000;
 					obj.SaveAsync();*/
+					mazeTimer.GetComponent<MazeTimer>().StopTimer();
 				} else {
 					if (SaveLoadGame.SavedExist())
 						File.Delete(Application.persistentDataPath + "/LeMe.zd");
@@ -73,14 +75,12 @@ public class ExitDoor : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			isObjectCollideWithPlayer = true;
-			print ("Object start to collide");
 		}
 	}
 	
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			isObjectCollideWithPlayer = false;
-			print ("Object stop to collide");
 		}
 	}
 }
