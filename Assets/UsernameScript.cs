@@ -31,6 +31,8 @@ public class UsernameScript : MonoBehaviour {
 	
 	void InputManager() {
 		bool input = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
+		bool backMainMenu = Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7) || 
+			Input.GetKeyDown(KeyCode.Return);
 		
 		if (input && hasBeenSend == false) {
 			string get = _keyboard.GetString();
@@ -39,15 +41,15 @@ public class UsernameScript : MonoBehaviour {
 				if (username.Length < 15)
 					username = username + " ";
 			} else if (get.Equals("Delete")) {
-				if (username.Length > 1)
+				if (username.Length >= 1)
 					username = username.Remove(username.Length - 1);
 			} else if (get.Equals("Enter")) {
-				/*GameObject mazetimer = GameObject.Find("Maze Timer");
+				GameObject mazetimer = GameObject.Find("Maze Timer");
 				MazeTimer _mazetimer = mazetimer.GetComponent<MazeTimer>();
 				ParseObject obj = new ParseObject(_mazetimer.stageName + "_Leaderboard");
 				obj["userName"] = username;
 				obj["timeMs"] = _mazetimer.GetMs();
-				obj.SaveAsync();*/
+				obj.SaveAsync();
 				
 				hasBeenSend = true;
 				KeyboardDeleted();
@@ -56,6 +58,9 @@ public class UsernameScript : MonoBehaviour {
 					username = username + get;
 			}
 		}
+		
+		if (hasBeenSend && backMainMenu)
+			Application.LoadLevel("LevelSelection");
 	}
 	
 	void Visualize() {
@@ -70,6 +75,6 @@ public class UsernameScript : MonoBehaviour {
 			Destroy(_keyboard.listLetter[i]);
 		}
 		
-		keyboardSprite.GetComponent<Image>().color =  new Color(1, 1, 1, 0.3f);
+		keyboardSprite.GetComponent<Image>().color =  new Color(1, 1, 1, 0.1f);
 	}
 }

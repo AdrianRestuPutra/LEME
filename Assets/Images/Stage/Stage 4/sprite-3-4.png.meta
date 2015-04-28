@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 40fe1368f309b9b479493dab6fa7057f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 3
+    21300002: 4
+    21300004: tamplate1
+    21300006: tamplate2
+    21300008: tamplate3
+    21300010: pembatas
+    21300012: pintu
+    21300014: tamplate4
+    21300016: tamplate5
+    21300018: tamplate6
+    21300020: tamplate7
+    21300022: tralis
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1880
+        width: 2042
+        height: 2216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 4
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 1880
+        width: 2043
+        height: 2216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1351
+        width: 1021
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate2
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1351
+        width: 1029
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate3
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 1351
+        width: 1029
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pembatas
+      rect:
+        serializedVersion: 2
+        x: 3687
+        y: 1309
+        width: 36
+        height: 506
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pintu
+      rect:
+        serializedVersion: 2
+        x: 3791
+        y: 1408
+        width: 222
+        height: 407
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 822
+        width: 1021
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate5
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 822
+        width: 1029
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate6
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 822
+        width: 1029
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tamplate7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 1021
+        height: 521
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tralis
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 285
+        width: 2185
+        height: 503
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -9,8 +9,9 @@ using System.IO;
 public class ExitDoor : MonoBehaviour {
 	public GameObject player;
 	public bool isBlindMode;
-	public string className;
 	public GameObject mazeTimer;
+	
+	public string levelName;
 	public GameObject passed;
 	public bool dontSendData = false;
 
@@ -42,6 +43,10 @@ public class ExitDoor : MonoBehaviour {
 				} else {
 					if (SaveLoadGame.SavedExist())
 						File.Delete(Application.persistentDataPath + "/LeMe.zd");
+						
+					PlayerProgress.Load();
+					PlayerProgress.playerProgress.playerProgress[levelName] = "Solved";
+					PlayerProgress.Save();
 				}
 				//Application.LoadLevel(2);
 				

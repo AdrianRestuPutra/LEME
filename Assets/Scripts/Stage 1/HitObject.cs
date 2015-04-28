@@ -4,6 +4,8 @@ using System.Collections;
 public class HitObject : MonoBehaviour {
 	public GameObject player;
 	public int[] dialogueID;
+	public bool isContainObject = false;
+	
 	private bool input;
 	private bool isObjectCollideWithPlayer = false;
 	private bool isShown = false;
@@ -28,13 +30,26 @@ public class HitObject : MonoBehaviour {
 		if (input && isObjectCollideWithPlayer) {
 			if (isShown == false) {
 				isShown = true;
-				int id = Random.Range(0, dialogueID.Length);
-				Dialoguer.StartDialogue(dialogueID[id],dialoguerCallBack);
+				int id = GetID();
+				if (isContainObject)
+					Dialoguer.StartDialogue(id,dialoguerCallBack);
+				else Dialoguer.StartDialogue(dialogueID[GetID()],dialoguerCallBack);
+				isContainObject = false;
 				RemoveUserInput();
 			} else {
 				isShown = false;
 				Dialoguer.EndDialogue();
 			}
+		}
+	}
+	
+	int GetID() {
+		if (isContainObject) {
+			int id = Random.Range(0, 3);
+			return 69 + id;
+		} else {
+			int id = Random.Range(0, dialogueID.Length);
+			return id;
 		}
 	}
 

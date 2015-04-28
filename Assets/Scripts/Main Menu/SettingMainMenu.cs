@@ -103,7 +103,7 @@ public class SettingMainMenu : MonoBehaviour {
 	
 	void ResolutionSettingChoose() {
 		if (index == 0) Screen.SetResolution(1366, 768, Screen.fullScreen);
-		if (index == 1) Screen.SetResolution(1280, 720, Screen.fullScreen);
+		if (index == 1) Screen.SetResolution(1280, 800, Screen.fullScreen);
 		if (index == 2) Screen.SetResolution(800, 600, Screen.fullScreen);
 		if (index == 3) Screen.SetResolution(640, 480, Screen.fullScreen);
 	}

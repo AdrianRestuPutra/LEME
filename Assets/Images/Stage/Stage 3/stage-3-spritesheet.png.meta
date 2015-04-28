@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 9bf06e83ea5ee3e4dba343cc7b28df49
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: full-stage
+    21300002: torch
+    21300004: box
+    21300006: open-door
+    21300008: gulungan-koran
+    21300010: letter1
+    21300012: letter2
+    21300014: letter3
+    21300016: koran
+    21300018: toolbox
+    21300020: bangku
+    21300022: tangga-atap
+    21300024: mesin-ketik
+    21300026: tali-tangga
+    21300028: paper
+    21300030: exit-key
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: full-stage
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1192
+        width: 3168
+        height: 2904
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torch
+      rect:
+        serializedVersion: 2
+        x: 3922
+        y: 3840
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: box
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3563
+        width: 256
+        height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: open-door
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 3260
+        width: 158
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gulungan-koran
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3164
+        width: 256
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: letter1
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 2612
+        width: 382
+        height: 512
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: letter2
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 2072
+        width: 382
+        height: 516
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: letter3
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 1544
+        width: 378
+        height: 512
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: koran
+      rect:
+        serializedVersion: 2
+        x: 3579
+        y: 1125
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: toolbox
+      rect:
+        serializedVersion: 2
+        x: 3835
+        y: 955
+        width: 256
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bangku
+      rect:
+        serializedVersion: 2
+        x: 3857
+        y: 651
+        width: 239
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tangga-atap
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 493
+        height: 882
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mesin-ketik
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 0
+        width: 256
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tali-tangga
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 0
+        width: 21
+        height: 298
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: paper
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 0
+        width: 256
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: exit-key
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 0
+        width: 92
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

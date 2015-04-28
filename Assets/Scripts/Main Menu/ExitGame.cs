@@ -56,8 +56,8 @@ public class ExitGame : MonoBehaviour {
 				
 				mainScreen.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 				mainScreen.GetComponent<MainMenu>().enabled = true;
+				index = 0;
 			}
-			index = 0;
 		}
 		
 		if (back) {

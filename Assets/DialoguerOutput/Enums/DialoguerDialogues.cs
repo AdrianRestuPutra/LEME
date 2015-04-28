@@ -27,4 +27,10 @@ public enum DialoguerDialogues{
 	Meja = 51,
 	Barang_Rusak = 54,
 	Blocked_Fire = 57,
+	Bak = 59,
+	Dark = 61,
+	Kunci_Tinggi = 64,
+	Torture = 66,
+	Found_Something = 69,
+	Found_something = 70,
 }

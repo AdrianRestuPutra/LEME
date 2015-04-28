@@ -9,6 +9,9 @@ public class LevelSelectionScript : MonoBehaviour {
 	public GameObject stageFloor;
 	public GameObject stageDifficulties;
 	public GameObject stageFoodStock;
+	public GameObject unsolvedTag;
+	public GameObject navigationBlind;
+	public GameObject blind;
 	
 	public string[] listName;
 	public string[] listFloor;
@@ -21,9 +24,14 @@ public class LevelSelectionScript : MonoBehaviour {
 	private int index;
 	private string xboxBeforeH = "CENTER";
 
+	void Awake () {
+		PlayerProgress.Load();
+	}
+
 	// Use this for initialization
 	void Start () {
 		index = 0;
+		PlayerProgress.Load();
 	}
 	
 	// Update is called once per frame
@@ -65,7 +73,7 @@ public class LevelSelectionScript : MonoBehaviour {
 			Application.LoadLevel(levelName[index]);
 		}
 		
-		if (inputMaze) {
+		if (inputMaze && PlayerProgress.StageSolved(levelName[index])) {
 			Destroy(GameObject.Find("Sound"));
 			Destroy(GameObject.Find("Light Snow"));
 			Application.LoadLevel(levelName[index] + " Blind Mode");
@@ -91,6 +99,16 @@ public class LevelSelectionScript : MonoBehaviour {
 			for(int i=0;i<textIfSavedExist.Length;i++) {
 				textIfSavedExist[i].GetComponent<MeshRenderer>().enabled = true;
 			}
+		}
+		
+		if (PlayerProgress.StageSolved(levelName[index])) {
+			unsolvedTag.GetComponent<SpriteRenderer>().enabled = false;
+			navigationBlind.GetComponent<MeshRenderer>().enabled = true;
+			blind.GetComponent<SpriteRenderer>().enabled = true;
+		} else {
+			unsolvedTag.GetComponent<SpriteRenderer>().enabled = true;
+			navigationBlind.GetComponent<MeshRenderer>().enabled = false;
+			blind.GetComponent<SpriteRenderer>().enabled = false;
 		}
 	}
 }

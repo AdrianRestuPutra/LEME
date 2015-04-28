@@ -16,8 +16,7 @@ public class PlayerBag : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		playerBag = new Hashtable();
-		playerAdditionalData = new Hashtable();
+		
 	}
 	
 	// Update is called once per frame

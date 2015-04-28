@@ -8,7 +8,7 @@ public class MovePlayer : MonoBehaviour {
 	public GameObject mainCamera;
 	
 	private Animator animator;
-	private bool isFacingRight= true;
+	public bool isFacingRight = true;
 	private AudioSource[] audioSources;
 
 	// Use this for initialization

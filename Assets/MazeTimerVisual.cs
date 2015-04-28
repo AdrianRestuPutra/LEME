@@ -35,9 +35,14 @@ public class MazeTimerVisual : MonoBehaviour {
 		second %= 60;
 		minute %= 60;
 		
+		string _ms;
 		string _hour;
 		string _minute;
 		string _second;
+		
+		if (ms < 10) _ms = "00" + ms;
+		else if (ms < 100) _ms = "0" + ms;
+		else _ms = ms + "";
 		
 		if (second < 10) _second = "0" + second;
 		else _second = second + "";
@@ -48,6 +53,6 @@ public class MazeTimerVisual : MonoBehaviour {
 		if (hour < 10) _hour = "0" + hour;
 		else _hour = hour + "";
 		
-		text.text = _hour + " : " + _minute + " : " + _second + " . " + ms;
+		text.text = _hour + " : " + _minute + " : " + _second + " . " + _ms;
 	}
 }

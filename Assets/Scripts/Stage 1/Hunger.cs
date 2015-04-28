@@ -12,10 +12,14 @@ public class Hunger : MonoBehaviour {
 	private float second = 0;
 	private Slider slider;
 	
-	// Use this for initialization
-	void Start () {
+	void Awake () {
 		hunger = maxHunger;
 		slider = hungerLevel.GetComponent<Slider>();
+	}
+	
+	// Use this for initialization
+	void Start () {
+		
 	}
 	
 	// Update is called once per frame
