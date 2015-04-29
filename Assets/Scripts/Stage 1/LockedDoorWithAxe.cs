@@ -17,6 +17,9 @@ public class LockedDoorWithAxe : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInputFromUser();
+	}
+	
+	void FixedUpdate() {
 		if (woodLock) {
 			if (playerBag.playerAdditionalData.Contains(woodLock.name))
 				Destroy(woodLock);

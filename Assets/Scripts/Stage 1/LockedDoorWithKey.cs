@@ -18,6 +18,9 @@ public class LockedDoorWithKey : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInputFromUser();
+	}
+	
+	void FixedUpdate() {
 		if (playerBag.IsCollected(keyName)) {
 			if (GetComponent<HitObject>())
 				GetComponent<HitObject>().enabled = false;

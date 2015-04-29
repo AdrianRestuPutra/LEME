@@ -21,6 +21,9 @@ public class LampBlink : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		second += Time.deltaTime;
+	}
+	
+	void FixedUpdate() {
 		if (second >= timeBlink) {
 			second = 0;
 			if (Random.Range(1, 101) <= chanceBlink) {

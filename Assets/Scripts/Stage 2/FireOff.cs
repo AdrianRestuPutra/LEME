@@ -19,8 +19,7 @@ public class FireOff : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate() {
 		if (playerBag.IsCollected("Ember")) {
 			if (playerBag.playerBag["Ember"].Equals("Isi"))
 				gameObject.GetComponent<HitObject>().enabled = false;
@@ -33,7 +32,10 @@ public class FireOff : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
-		
+	}
+	
+	// Update is called once per frame
+	void Update () {
 		bool input = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Joystick1Button0);
 		
 		if (input && isObjectCollideWithPlayer) {

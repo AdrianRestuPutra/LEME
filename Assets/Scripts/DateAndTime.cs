@@ -25,8 +25,11 @@ public class DateAndTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RefreshVisual();
 		TimeChange();
+	}
+	
+	void FixedUpdate() {
+		RefreshVisual();
 	}
 	
 	void RefreshVisual() {

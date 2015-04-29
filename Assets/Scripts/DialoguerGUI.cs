@@ -214,6 +214,8 @@ public class DialoguerGUI : MonoBehaviour {
 	private void AddUserInput() {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		MovePlayer movePlayer = player.GetComponent<MovePlayer> ();
+		movePlayer.stateBefore = 0;
+		movePlayer.state = 0;
 		movePlayer.enabled = true;
 	}
 	

@@ -20,6 +20,9 @@ public class CollectedItems : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInputFromUser();
+	}
+	
+	void FixedUpdate() {
 		if (removeAfterTake) {
 			if (playerBag.IsCollected(objectName))
 				Destroy(gameObject);

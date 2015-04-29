@@ -11,10 +11,12 @@ public class Hunger : MonoBehaviour {
 	private float hunger;
 	private float second = 0;
 	private Slider slider;
+	private float initialHungerDecreased;
 	
 	void Awake () {
 		hunger = maxHunger;
 		slider = hungerLevel.GetComponent<Slider>();
+		initialHungerDecreased = hungerDecreased;
 	}
 	
 	// Use this for initialization
@@ -65,5 +67,13 @@ public class Hunger : MonoBehaviour {
 	
 	public float GetHunger() {
 		return hunger;
+	}
+	
+	public void BoostMove() {
+		hungerDecreased = initialHungerDecreased / 2f;
+	}
+	
+	public void StandartMove() {
+		hungerDecreased = initialHungerDecreased;
 	}
 }

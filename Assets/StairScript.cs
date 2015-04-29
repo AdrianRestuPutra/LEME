@@ -14,6 +14,10 @@ public class StairScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+	
+	void FixedUpdate() {
 		if (isObjectCollideWithPlayer) {
 			wayPoint.GetComponent<SpriteRenderer>().enabled = true;
 		} else wayPoint.GetComponent<SpriteRenderer>().enabled = false;

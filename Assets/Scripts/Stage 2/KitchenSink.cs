@@ -18,10 +18,13 @@ public class KitchenSink : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetInputFromUser();
+	}
+	
+	void FixedUpdate() {
 		Visualize();
 		if (playerBag.IsCollected("Wrench"))
 			gameObject.GetComponent<HitObject>().enabled = false;
-			
+		
 		if (playerBag.playerAdditionalData.ContainsKey("IsSinkFix")) {
 			if (playerBag.playerAdditionalData["IsSinkFix"].Equals("True"))
 				isFix = true;

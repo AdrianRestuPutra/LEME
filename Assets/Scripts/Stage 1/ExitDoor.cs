@@ -32,7 +32,6 @@ public class ExitDoor : MonoBehaviour {
 		
 		if (input && isObjectCollideWithPlayer) {
 			if (player.GetComponent<PlayerBag>().IsCollected("exit-key")) {
-				print("KELUAR");
 				if (isBlindMode) {
 					/*ParseObject obj = new ParseObject(className);
 					obj["userId"] = "1234567890";

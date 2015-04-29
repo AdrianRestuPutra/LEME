@@ -17,6 +17,10 @@ public class Ember : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+	
+	void FixedUpdate() {
 		if (playerBag.playerBag.ContainsKey("Ember") == true) {
 			if (playerBag.playerBag["Ember"].Equals("Isi"))
 				GetComponent<Image>().sprite = bucketFull;

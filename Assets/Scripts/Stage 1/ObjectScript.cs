@@ -36,21 +36,18 @@ public class ObjectScript : MonoBehaviour {
 				if (destroyAfterShow == true)
 					Destroy(gameObject);
 			}
-			print("Action Accepted");
 		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			isObjectCollideWithPlayer = true;
-			print ("Object start to collide");
 		}
 	}
 	
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			isObjectCollideWithPlayer = false;
-			print ("Object stop to collide");
 		}
 	}
 	
