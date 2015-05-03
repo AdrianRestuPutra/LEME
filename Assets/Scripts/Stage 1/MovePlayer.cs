@@ -50,8 +50,9 @@ public class MovePlayer : MonoBehaviour {
 		bool backMenu = Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7);
 		float axis = Input.GetAxis("Horizontal_Joystick");
 		float boost = Input.GetAxis("Boost_Joystick");
+		bool boostKeyboard = Input.GetKey(KeyCode.LeftShift);
 		
-		if (boost >= 0.5f) {
+		if (boost >= 0.5f || boostKeyboard) {
 			if (GetComponent<Hunger>())
 				GetComponent<Hunger>().BoostMove();
 			isBoost = true;

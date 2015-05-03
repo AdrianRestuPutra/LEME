@@ -32,6 +32,12 @@ public class DoorSideScript : MonoBehaviour {
 		}
 	}
 	
+	void FixedUpdate() {
+		if (player.GetComponent<PlayerBag>().IsCollected(key)) {
+			GetComponent<HitObject>().enabled = false;
+		}
+	}
+	
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			isObjectCollideWithPlayer = true;

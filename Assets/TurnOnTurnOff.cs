@@ -4,6 +4,7 @@ using System.Collections;
 public class TurnOnTurnOff : MonoBehaviour {
 	
 	public GameObject light;
+	public GameObject[] textGlow;
 	
 	private bool isObjectCollideWithPlayer = false;
 
@@ -24,6 +25,11 @@ public class TurnOnTurnOff : MonoBehaviour {
 			bool isOn = light.GetComponent<Light>().enabled;
 			
 			light.GetComponent<Light>().enabled ^= true;
+			
+			if (light.GetComponent<Light>().enabled == false) {
+				for(int i=0;i<textGlow.Length;i++)
+					textGlow[i].GetComponent<MeshRenderer>().enabled = true;
+			}
 		}
 	}
 	

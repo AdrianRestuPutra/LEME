@@ -8,6 +8,7 @@ public class Brankas : MonoBehaviour {
 	public string chatMessage;
 	public int rightAnswer;
 	public string objectName;
+	public float scale = 1;
 	
 	private bool isObjectCollideWithPlayer = false;
 	private GameObject objectShownInCamera;
@@ -36,6 +37,7 @@ public class Brankas : MonoBehaviour {
 			brankasInput.GetComponent<BrankasInput>().objectInside = objectName;
 			brankasInput.GetComponent<BrankasInput>().hudChat = hudChat;
 			brankasInput.GetComponent<BrankasInput>().chatMessage = chatMessage;
+			brankasInput.transform.localScale = new Vector3(scale, scale, 1f);
 			Instantiate(brankasInput);
 			gameObject.GetComponent<Brankas>().enabled = false;
 			player.GetComponent<MovePlayer>().enabled = false;
