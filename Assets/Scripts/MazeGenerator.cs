@@ -86,6 +86,7 @@ public class MazeGenerator : MonoBehaviour {
 		selectedObject.GetComponent<CollectedItems>().hudChat = hudChat;
 		selectedObject.GetComponent<CollectedItems>().player = player;
 		selectedObject.GetComponent<CollectedItems>().objectName = key;
+		selectedObject.GetComponent<HitObject>().isContainObject = true;
 		
 		objectInRoom[hideLocation].GetComponent<ObjectInRoom>().objectInRoom[objectPlace] = selectedObject;
 	}
