@@ -50,10 +50,10 @@ public class ExitDoor : MonoBehaviour {
 				//Application.LoadLevel(2);
 				
 				if (!dontSendData) {
-					ParseObject obj = new ParseObject("Statistik");
+					/*ParseObject obj = new ParseObject("Statistik");
 					obj.ObjectId = "tJESUgUX5L";
 					obj.Increment("SuccessOut");
-					obj.SaveAsync();
+					obj.SaveAsync();*/
 				}
 				
 				passed.GetComponent<SpriteRenderer>().enabled = true;
@@ -62,6 +62,7 @@ public class ExitDoor : MonoBehaviour {
 				
 				GameObject.Find("Player Graphic").GetComponent<Animator>().SetBool("Walk", false);
 				player.GetComponent<AudioSource>().enabled = false;
+                player.GetComponent<MovePlayer>().Done();
 				
 				Object[] objects = GameObject.FindObjectsOfType<GameObject>();
 				foreach (Object _object in objects) {

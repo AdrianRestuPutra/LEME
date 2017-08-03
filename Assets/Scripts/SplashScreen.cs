@@ -6,7 +6,7 @@ public class SplashScreen : MonoBehaviour {
 	public float time = 6;
 
 	void Awake () {
-		Screen.showCursor = false;
+		Cursor.visible = false;
 		Application.targetFrameRate = 60;
 	}
 

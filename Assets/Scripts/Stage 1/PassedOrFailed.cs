@@ -17,7 +17,7 @@ public class PassedOrFailed : MonoBehaviour {
 		if (time <= 0) {
 			if (isBlindMode)
 				Application.LoadLevel("Score View");
-			else Application.LoadLevel(2);
+			else Application.LoadLevel("LevelSelection");
 		}
 	}
 }

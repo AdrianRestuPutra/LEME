@@ -1,5 +1,7 @@
 using UnityEngine;
-//using UnityEditor;
+#if UNITY_EDITOR
+ using UnityEditor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 
@@ -214,7 +216,7 @@ namespace DialoguerEditor{
 			iconPath += "Dark/";
 			iconPath += "icon_"+icon+".png";
 			
-			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
+			return Resources.Load(iconPath, typeof(Texture)) as Texture;
 		}
 		
 		private static Texture getLightIcon(string icon){
@@ -224,7 +226,7 @@ namespace DialoguerEditor{
 			iconPath += "Light/";
 			iconPath += "icon_"+icon+".png";
 			
-			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
+			return Resources.Load(iconPath, typeof(Texture)) as Texture;
 		}
 	}
 	

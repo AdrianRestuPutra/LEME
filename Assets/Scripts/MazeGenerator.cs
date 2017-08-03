@@ -61,7 +61,7 @@ public class MazeGenerator : MonoBehaviour {
 			int objectPlace = Random.Range(0, listObject.Length);
 			GameObject selectedObject = listObject[objectPlace];
 			
-			selectedObject.AddComponent("CollectedItems");
+			selectedObject.AddComponent<CollectedItems>();
 			selectedObject.GetComponent<CollectedItems>().chatMessage = "A key has been found";
 			selectedObject.GetComponent<CollectedItems>().hudChat = hudChat;
 			selectedObject.GetComponent<CollectedItems>().player = player;
@@ -81,7 +81,7 @@ public class MazeGenerator : MonoBehaviour {
 		int objectPlace = Random.Range(0, listObject.Length);
 		GameObject selectedObject = listObject[objectPlace];
 		
-		selectedObject.AddComponent("CollectedItems");
+		selectedObject.AddComponent<CollectedItems>();
 		selectedObject.GetComponent<CollectedItems>().chatMessage = "You found The Exit Key";
 		selectedObject.GetComponent<CollectedItems>().hudChat = hudChat;
 		selectedObject.GetComponent<CollectedItems>().player = player;

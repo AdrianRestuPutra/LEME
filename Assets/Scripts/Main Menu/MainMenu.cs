@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour {
 	public GameObject mainSetting;
 	public GameObject exitSetting;
 	
-	private int index = 1;
+	private int index = 0;
 	private string xboxBeforeH = "CENTER";
 	private string xboxBeforeV = "CENTER";
 
@@ -73,23 +73,23 @@ public class MainMenu : MonoBehaviour {
 	}
 	
 	void MainScreenChoose() {
-		if (index == 0) {
+		/*if (index == 0) {
 			if (SaveLoadGame.Load()) {
 				Destroy(GameObject.Find("Sound"));
 				Destroy(GameObject.Find("Light Snow"));
 				DontDestroyOnLoad(GameObject.Find("Load From File"));
 				Application.LoadLevel((string)SaveLoadGame.playerData.additionalData["Level"]);
 			}
-		}
-		if (index == 1) Application.LoadLevel(2);
-		if (index == 2) {
+		}*/
+		if (index == 0) Application.LoadLevel("LevelSelection");
+		if (index == 1) {
 			this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 			this.enabled = false;
 			
 			mainSetting.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
 			mainSetting.GetComponent<SettingMainMenu>().enabled = true;
 		}
-		if (index == 3) {
+		if (index == 2) {
 			this.GetComponent<RectTransform>().offsetMin = new Vector2(-1000, 0);
 			this.enabled = false;
 			

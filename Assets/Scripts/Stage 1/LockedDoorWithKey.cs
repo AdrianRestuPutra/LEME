@@ -37,7 +37,7 @@ public class LockedDoorWithKey : MonoBehaviour {
 				player.GetComponent<MovePlayer>().PlayOpenDoor();
 			} else {
 				print("You don't have a key");
-				audio.Play();
+				GetComponent<AudioSource>().Play();
 			}
 		}
 	}

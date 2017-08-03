@@ -46,7 +46,7 @@ public class LevelSelectionScript : MonoBehaviour {
 		
 		bool input = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button0) 
 			|| Input.GetKeyDown(KeyCode.A);
-		bool inputMaze = Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown(KeyCode.Joystick1Button3);
+		bool inputMaze = false; // Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown(KeyCode.Joystick1Button3);
 		
 		bool back = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Joystick1Button1)
 			|| Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.B);
@@ -80,7 +80,7 @@ public class LevelSelectionScript : MonoBehaviour {
 		}
 		
 		if (back) {
-			Application.LoadLevel(1);
+			Application.LoadLevel("MainMenu");
 		}
 	}
 	

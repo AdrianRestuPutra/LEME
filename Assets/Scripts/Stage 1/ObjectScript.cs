@@ -55,7 +55,7 @@ public class ObjectScript : MonoBehaviour {
 		GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 		GameObject objectShown = new GameObject();
 		objectShown.name = "Object Shown";
-		objectShown.AddComponent("SpriteRenderer");
+		objectShown.AddComponent<SpriteRenderer>();
 		objectShown.GetComponent<SpriteRenderer>().sprite = objectImage;
 		objectShown.GetComponent<SpriteRenderer>().sortingOrder = 11;
 		

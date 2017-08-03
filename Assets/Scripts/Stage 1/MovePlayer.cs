@@ -94,14 +94,14 @@ public class MovePlayer : MonoBehaviour {
 		
 		if (state == 1) {
 			//rigidbody2D.velocity = new Vector2(force, 0);
-			if (isBoost) rigidbody2D.velocity = boostRightForce;
-			else rigidbody2D.velocity = rightForce;
+			if (isBoost) GetComponent<Rigidbody2D>().velocity = boostRightForce;
+			else GetComponent<Rigidbody2D>().velocity = rightForce;
 		} else if (state == -1) {
 			//rigidbody2D.velocity = new Vector2(-force, 0);
-			if (isBoost) rigidbody2D.velocity = boostLeftForce;
-			else rigidbody2D.velocity = leftForce;
+			if (isBoost) GetComponent<Rigidbody2D>().velocity = boostLeftForce;
+			else GetComponent<Rigidbody2D>().velocity = leftForce;
 		} else {
-			rigidbody2D.velocity = stopForce;
+			GetComponent<Rigidbody2D>().velocity = stopForce;
 			//rigidbody2D.velocity = new Vector2(0, 0);
 		}
 	}
@@ -137,4 +137,8 @@ public class MovePlayer : MonoBehaviour {
 	public void PlayOpenDoor() {
 		mainCamera.GetComponents<AudioSource>()[1].Play();
 	}
+    
+    public void Done() {
+        GetComponent<Rigidbody2D>().velocity = stopForce;
+    }
 }
